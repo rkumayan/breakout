@@ -6,16 +6,16 @@
 [ext_resource type="Texture2D" uid="uid://cm2h4wfko276a" path="res://assets/ball.png" id="4_6bpfx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ccfd4"]
-size = Vector2(1104, 20)
+size = Vector2(1157, 204)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kkw7m"]
 size = Vector2(27, 1951.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dky4r"]
-size = Vector2(235, 47)
+size = Vector2(355, 47)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ife6b"]
-radius = 20.0
+radius = 34.0147
 
 [node name="Node2D" type="Node2D"]
 
@@ -24,13 +24,13 @@ radius = 20.0
 [node name="StaticBody2D" type="StaticBody2D" parent="walls"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="walls/StaticBody2D"]
-position = Vector2(544, -10)
+position = Vector2(573, -108)
 shape = SubResource("RectangleShape2D_ccfd4")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="walls"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="walls/StaticBody2D2"]
-position = Vector2(541, 1930)
+position = Vector2(579, 744)
 shape = SubResource("RectangleShape2D_ccfd4")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="walls"]
@@ -42,27 +42,30 @@ shape = SubResource("RectangleShape2D_kkw7m")
 [node name="StaticBody2D4" type="StaticBody2D" parent="walls"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="walls/StaticBody2D4"]
-position = Vector2(1094, 968)
+position = Vector2(1165, 970)
 shape = SubResource("RectangleShape2D_kkw7m")
 
 [node name="player" type="CharacterBody2D" parent="."]
 script = ExtResource("1_l850v")
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="player"]
-position = Vector2(551.5, 559.5)
+position = Vector2(584, 474)
 texture = ExtResource("2_dxpcl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
-position = Vector2(552, 559)
+position = Vector2(580.5, 475)
 shape = SubResource("RectangleShape2D_dky4r")
 
-[node name="ball" type="CharacterBody2D" parent="."]
+[node name="ball" type="Area2D" parent="."]
 script = ExtResource("3_bc0n6")
 
 [node name="Sprite2D" type="Sprite2D" parent="ball"]
-position = Vector2(543, 483)
+position = Vector2(601, 80)
 texture = ExtResource("4_6bpfx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ball"]
-position = Vector2(543, 483)
+position = Vector2(601, 81)
 shape = SubResource("CircleShape2D_ife6b")
+
+[connection signal="body_entered" from="ball" to="ball" method="_on_body_entered"]

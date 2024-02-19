@@ -1,11 +1,14 @@
-extends RigidBody2D
+extends Area2D
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+var add_x = 1
+var add_y = 1
+func _physics_process(delta):
+	position += Vector2(add_x,add_y) 
 	pass
+
+
+func _on_body_entered(body):
+	add_y = -add_y
+	print('body entered')
+	pass
+	
