@@ -21,27 +21,27 @@ radius = 34.0147
 
 [node name="walls" type="Node2D" parent="."]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="walls"]
+[node name="top" type="StaticBody2D" parent="walls"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/top"]
 position = Vector2(573, -108)
 shape = SubResource("RectangleShape2D_ccfd4")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="walls"]
+[node name="bottom" type="StaticBody2D" parent="walls"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/StaticBody2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/bottom"]
 position = Vector2(579, 744)
 shape = SubResource("RectangleShape2D_ccfd4")
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="walls"]
+[node name="left" type="StaticBody2D" parent="walls"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/StaticBody2D3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/left"]
 position = Vector2(-12, 973)
 shape = SubResource("RectangleShape2D_kkw7m")
 
-[node name="StaticBody2D4" type="StaticBody2D" parent="walls"]
+[node name="right" type="StaticBody2D" parent="walls"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/StaticBody2D4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/right"]
 position = Vector2(1165, 970)
 shape = SubResource("RectangleShape2D_kkw7m")
 
@@ -61,11 +61,11 @@ shape = SubResource("RectangleShape2D_dky4r")
 script = ExtResource("3_bc0n6")
 
 [node name="Sprite2D" type="Sprite2D" parent="ball"]
-position = Vector2(601, 80)
+position = Vector2(501, 187)
 texture = ExtResource("4_6bpfx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ball"]
-position = Vector2(601, 81)
+position = Vector2(502, 187)
 shape = SubResource("CircleShape2D_ife6b")
 
 [connection signal="body_entered" from="ball" to="ball" method="_on_body_entered"]
