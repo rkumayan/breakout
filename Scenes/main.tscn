@@ -1,15 +1,15 @@
 [gd_scene load_steps=9 format=3 uid="uid://c22rmrb1nnbld"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_l850v"]
-[ext_resource type="Texture2D" uid="uid://dv6aldhor8wm3" path="res://assets/player.png" id="2_dxpcl"]
-[ext_resource type="Script" path="res://ball.gd" id="3_bc0n6"]
-[ext_resource type="Texture2D" uid="uid://cm2h4wfko276a" path="res://assets/ball.png" id="4_6bpfx"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_jqdgr"]
+[ext_resource type="Texture2D" uid="uid://dv6aldhor8wm3" path="res://assets/player.png" id="2_tn4ox"]
+[ext_resource type="Script" path="res://scripts/ball.gd" id="3_qe1sg"]
+[ext_resource type="Texture2D" uid="uid://cm2h4wfko276a" path="res://assets/ball.png" id="4_wly2y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ccfd4"]
-size = Vector2(1157, 204)
+size = Vector2(1157, 30)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kkw7m"]
-size = Vector2(27, 1951.5)
+size = Vector2(21.5, 679.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dky4r"]
 size = Vector2(355, 47)
@@ -24,45 +24,45 @@ radius = 34.0147
 [node name="top" type="StaticBody2D" parent="walls"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="walls/top"]
-position = Vector2(573, -108)
+position = Vector2(598, -15)
 shape = SubResource("RectangleShape2D_ccfd4")
 
 [node name="bottom" type="StaticBody2D" parent="walls"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="walls/bottom"]
-position = Vector2(579, 744)
+position = Vector2(593, 663)
 shape = SubResource("RectangleShape2D_ccfd4")
 
 [node name="left" type="StaticBody2D" parent="walls"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="walls/left"]
-position = Vector2(-12, 973)
+position = Vector2(-10, 336)
 shape = SubResource("RectangleShape2D_kkw7m")
 
 [node name="right" type="StaticBody2D" parent="walls"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="walls/right"]
-position = Vector2(1165, 970)
+position = Vector2(1163, 312)
 shape = SubResource("RectangleShape2D_kkw7m")
 
 [node name="player" type="CharacterBody2D" parent="."]
-script = ExtResource("1_l850v")
+script = ExtResource("1_jqdgr")
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="player"]
 position = Vector2(584, 474)
-texture = ExtResource("2_dxpcl")
+texture = ExtResource("2_tn4ox")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
 position = Vector2(580.5, 475)
 shape = SubResource("RectangleShape2D_dky4r")
 
 [node name="ball" type="Area2D" parent="."]
-script = ExtResource("3_bc0n6")
+script = ExtResource("3_qe1sg")
 
 [node name="Sprite2D" type="Sprite2D" parent="ball"]
 position = Vector2(501, 187)
-texture = ExtResource("4_6bpfx")
+texture = ExtResource("4_wly2y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ball"]
 position = Vector2(502, 187)

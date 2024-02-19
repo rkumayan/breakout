@@ -16,11 +16,9 @@ func _on_body_entered(body):
 		add_x = -add_x
 	
 	#collided with top or bottom wall
-	if( str(body) == "top:<StaticBody2D#27363640524>" or str(body) == "bottom:<StaticBody2D#27397194952>"):
+	if( str(body) == "top:<StaticBody2D#27363640526>" or str(body) == "bottom:<StaticBody2D#27397194956>"):
 		add_y = -add_y
 	
-	
-		
 	print(body)
 	
 	pass
