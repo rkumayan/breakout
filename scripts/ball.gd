@@ -1,9 +1,9 @@
 extends Area2D
 
-var add_x = -10
-var add_y = 10
+var add_x = -400
+var add_y = 400
 func _physics_process(delta):
-	position += Vector2(add_x,add_y) 
+	position += Vector2(add_x,add_y) * delta
 	pass
 
 #a function to return the name of node that entered in ball
@@ -29,8 +29,11 @@ func _on_body_entered(body):
 	
 	#collided with top or bottom wall
 	if( body_node_name == "top" or body_node_name == "bottom"):
+		print( "collided with top")
 		add_y = -add_y
-	
+	#collision wit bottom wall
+	if( body_node_name == "bottom"):
+		print("game over")
 
 #for collision of ball with brick
 func _on_area_entered(area):

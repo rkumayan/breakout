@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const speed = 300
+const speed = 500
 func _physics_process(delta):
 	
 	var direction = Input.get_axis("ui_left", "ui_right")
@@ -9,4 +9,5 @@ func _physics_process(delta):
 	elif( Input.is_action_pressed("ui_right")):
 		position.x += speed * delta
 
+	move_and_slide()
 	
