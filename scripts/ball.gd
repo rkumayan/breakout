@@ -6,20 +6,32 @@ func _physics_process(delta):
 	position += Vector2(add_x,add_y) 
 	pass
 
-
+#a function to return the name of node that entered in ball
+func return_node(str):
+	var node_string : String = ""
+	for ch in str:
+		if( ch != ':'):
+			node_string += ch
+		else:
+			break
+	return node_string
+	
+	#for collision of ball between player or walls
 func _on_body_entered(body):
+	var body_node_name = return_node( str(body))
+
 	#player entered
-	if( str(body) == "player:<CharacterBody2D#27497858266>"):
+	if( body_node_name == "player"):
 		add_y = -add_y
 	#collided with right or left wall
-	if( str(body) == "right:<StaticBody2D#27464303832>" or str(body) ==  "left:<StaticBody2D#27430749398>"):
+	if( body_node_name == "right" or body_node_name ==  "left"):
 		add_x = -add_x
 	
 	#collided with top or bottom wall
-	if( str(body) == "top:<StaticBody2D#27363640526>" or str(body) == "bottom:<StaticBody2D#27397194956>"):
+	if( body_node_name == "top" or body_node_name == "bottom"):
 		add_y = -add_y
 	
-	print(body)
-	
-	pass
-	
+
+#for collision of ball with brick
+func _on_area_entered(area):
+	add_y = -add_y

@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://c22rmrb1nnbld"]
+[gd_scene load_steps=12 format=3 uid="uid://c22rmrb1nnbld"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_jqdgr"]
 [ext_resource type="Texture2D" uid="uid://dv6aldhor8wm3" path="res://assets/player.png" id="2_tn4ox"]
 [ext_resource type="Script" path="res://scripts/ball.gd" id="3_qe1sg"]
 [ext_resource type="Texture2D" uid="uid://cm2h4wfko276a" path="res://assets/ball.png" id="4_wly2y"]
+[ext_resource type="Script" path="res://scripts/brick.gd" id="5_6oa7m"]
+[ext_resource type="Texture2D" uid="uid://57i3p5gim6f4" path="res://assets/brick.jpeg" id="6_de30q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ccfd4"]
 size = Vector2(1157, 30)
@@ -17,6 +19,9 @@ size = Vector2(355, 47)
 [sub_resource type="CircleShape2D" id="CircleShape2D_ife6b"]
 radius = 34.0147
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ygo6y"]
+size = Vector2(79, 45)
+
 [node name="Node2D" type="Node2D"]
 
 [node name="walls" type="Node2D" parent="."]
@@ -24,7 +29,7 @@ radius = 34.0147
 [node name="top" type="StaticBody2D" parent="walls"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="walls/top"]
-position = Vector2(598, -15)
+position = Vector2(576, -14)
 shape = SubResource("RectangleShape2D_ccfd4")
 
 [node name="bottom" type="StaticBody2D" parent="walls"]
@@ -68,4 +73,44 @@ texture = ExtResource("4_wly2y")
 position = Vector2(502, 187)
 shape = SubResource("CircleShape2D_ife6b")
 
+[node name="brick" type="Area2D" parent="."]
+script = ExtResource("5_6oa7m")
+
+[node name="Sprite2D" type="Sprite2D" parent="brick"]
+position = Vector2(189.75, 156.875)
+scale = Vector2(0.424324, 0.25578)
+texture = ExtResource("6_de30q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="brick"]
+position = Vector2(189.5, 156.5)
+shape = SubResource("RectangleShape2D_ygo6y")
+
+[node name="brick2" type="Area2D" parent="."]
+script = ExtResource("5_6oa7m")
+
+[node name="Sprite2D" type="Sprite2D" parent="brick2"]
+position = Vector2(268, 217)
+scale = Vector2(0.424324, 0.25578)
+texture = ExtResource("6_de30q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="brick2"]
+position = Vector2(268, 219)
+shape = SubResource("RectangleShape2D_ygo6y")
+
+[node name="brick3" type="Area2D" parent="."]
+script = ExtResource("5_6oa7m")
+
+[node name="Sprite2D" type="Sprite2D" parent="brick3"]
+position = Vector2(317, 149)
+scale = Vector2(0.424324, 0.25578)
+texture = ExtResource("6_de30q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="brick3"]
+position = Vector2(318, 150)
+shape = SubResource("RectangleShape2D_ygo6y")
+
+[connection signal="area_entered" from="ball" to="ball" method="_on_area_entered"]
 [connection signal="body_entered" from="ball" to="ball" method="_on_body_entered"]
+[connection signal="area_entered" from="brick" to="brick" method="_on_area_entered"]
+[connection signal="area_entered" from="brick2" to="brick2" method="_on_area_entered"]
+[connection signal="area_entered" from="brick3" to="brick3" method="_on_area_entered"]
