@@ -23,13 +23,17 @@ func _on_body_entered(body):
 	#player entered
 	if( body_node_name == "player"):
 		add_y = -add_y
+		$"../player/PointLight2D".enabled = true
+		$"../player/Timer".autostart = true
+		
 	#collided with right or left wall
 	if( body_node_name == "right" or body_node_name ==  "left"):
 		add_x = -add_x
 	
+	
 	#collided with top or bottom wall
 	if( body_node_name == "top" or body_node_name == "bottom"):
-		print( "collided with top")
+		
 		add_y = -add_y
 	#collision wit bottom wall
 	if( body_node_name == "bottom"):
@@ -38,3 +42,10 @@ func _on_body_entered(body):
 #for collision of ball with brick
 func _on_area_entered(area):
 	add_y = -add_y
+	
+
+
+func _on_timer_timeout():
+	$"../player/PointLight2D".enabled = false
+	print('timer called')
+	
