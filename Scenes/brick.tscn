@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bt43ubobtm41n"]
+[gd_scene load_steps=5 format=3 uid="uid://bt43ubobtm41n"]
 
 [ext_resource type="Texture2D" uid="uid://57i3p5gim6f4" path="res://assets/brick.jpeg" id="1_125ld"]
 [ext_resource type="Script" path="res://scripts/brick.gd" id="1_ider0"]
+[ext_resource type="PackedScene" uid="uid://dmwvjbq368xvo" path="res://Scenes/brick_explosion_particle_effect.tscn" id="3_igwhx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y4gws"]
 size = Vector2(95, 57)
@@ -17,5 +18,9 @@ texture = ExtResource("1_125ld")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(48.5, 29.5)
 shape = SubResource("RectangleShape2D_y4gws")
+
+[node name="GPUParticles2D" parent="." instance=ExtResource("3_igwhx")]
+position = Vector2(49, 16)
+amount = 40
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
