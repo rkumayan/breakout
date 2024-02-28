@@ -84,7 +84,7 @@ shape = SubResource("RectangleShape2D_dky4r")
 
 [node name="Timer" type="Timer" parent="player"]
 process_callback = 0
-wait_time = 0.841
+wait_time = 0.3
 autostart = true
 
 [node name="ball" type="Area2D" parent="."]

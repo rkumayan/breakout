@@ -17,6 +17,8 @@ func return_node(str):
 	return node_string
 	
 	#for collision of ball between player or walls
+
+#collision of ball with player or walls
 func _on_body_entered(body):
 	var body_node_name = return_node( str(body))
 
@@ -24,7 +26,8 @@ func _on_body_entered(body):
 	if( body_node_name == "player"):
 		add_y = -add_y
 		$"../player/PointLight2D".enabled = true
-		$"../player/Timer".autostart = true
+		#$"../player/Timer".wait_time = 0.3
+		$"../player/Timer".start()
 		
 	#collided with right or left wall
 	if( body_node_name == "right" or body_node_name ==  "left"):
@@ -47,5 +50,5 @@ func _on_area_entered(area):
 
 func _on_timer_timeout():
 	$"../player/PointLight2D".enabled = false
-	print('timer called')
+	
 	

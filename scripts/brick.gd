@@ -11,6 +11,13 @@ func _process(delta):
 
 
 func _on_area_entered(area):
-	#print('something entered')
+	$Sprite2D.hide()
+	$Timer.start()
+	$GPUParticles2D.emitting = true
+	
+	
+
+
+func _on_timer_timeout():
 	queue_free()
 	
