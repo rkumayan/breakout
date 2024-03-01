@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://main.gd" id="1_4mepv"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_jqdgr"]
-[ext_resource type="Texture2D" uid="uid://0a0e5tynjjsx" path="res://assets/bg.jpeg" id="2_lxwjl"]
+[ext_resource type="Texture2D" uid="uid://cf0h68ylp84lm" path="res://assets/bg2.jpeg" id="2_sntja"]
 [ext_resource type="Texture2D" uid="uid://dv6aldhor8wm3" path="res://assets/player.png" id="2_tn4ox"]
 [ext_resource type="Script" path="res://scripts/ball.gd" id="3_qe1sg"]
 [ext_resource type="Texture2D" uid="uid://cm2h4wfko276a" path="res://assets/ball.png" id="4_wly2y"]
@@ -32,9 +32,9 @@ radius = 34.0147
 script = ExtResource("1_4mepv")
 
 [node name="background" type="Sprite2D" parent="."]
-position = Vector2(575.5, 331.5)
-scale = Vector2(3.9069, 3.81034)
-texture = ExtResource("2_lxwjl")
+position = Vector2(581.036, 332.132)
+scale = Vector2(1.18938, 1.15999)
+texture = ExtResource("2_sntja")
 
 [node name="walls" type="Node2D" parent="."]
 
@@ -109,6 +109,23 @@ shape = SubResource("CircleShape2D_ife6b")
 [node name="bricks_layer_4" type="Node" parent="bricks_layers"]
 
 [node name="bricks_layer_5" type="Node" parent="bricks_layers"]
+
+[node name="Score" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="VBoxContainer" parent="Score"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -183.0
+offset_bottom = 110.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+
+[node name="Label" type="Label" parent="Score/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Score : 10
+"
 
 [connection signal="timeout" from="player/Timer" to="ball" method="_on_timer_timeout"]
 [connection signal="area_entered" from="ball" to="ball" method="_on_area_entered"]
